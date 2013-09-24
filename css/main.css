@@ -1,0 +1,21 @@
+#container {
+
+  width: 358px;
+  height: 356px;
+  overflow: hidden;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#canvascont {
+  border:1px solid;	
+  width: 256px;
+  height: 256px;
+
+}
+
+#generate {
+	margin-left:25%;
+  
+}
