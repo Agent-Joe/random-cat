@@ -23,11 +23,11 @@ function generateCat()
 	//Изменяем размеры
 	var scaleCircle = {x:Math.sRandom(1,1.1),y:Math.sRandom(0.9,1.0)};
 	//Задаем цвета
-	var fillColor = "#fff";
-	var strokeColor = "#000";
+	var whiteColor = "#fff";
+	var blackColor = "#000";
 	//Рисуем
 	add(function(ctx){
-		drawСircle(ctx, {x:0,y:0}, radius, fillColor, (Math.sRandom(0, 100) < 95 ? strokeColor : fillColor), Math.sRandom(2,5));
+		drawСircle(ctx, {x:0,y:0}, radius, whiteColor, (Math.sRandom(0, 100) < 95 ? blackColor : whiteColor), Math.sRandom(2,5));
 
 	}, scaleCircle);
 
@@ -46,8 +46,8 @@ function generateCat()
 	add(function(ctx){
 		//Рисуем правое ухо
 	    ctx.beginPath();
-        ctx.strokeStyle = strokeColor;
-        ctx.fillStyle = fillColor;
+        ctx.strokeStyle = blackColor;
+        ctx.fillStyle = whiteColor;
         ctx.lineWidth = Math.sRandom(2, 4);
         topPointR = {x:topPointR.x+Math.sRandom(-1,5), y:topPointR.y+Math.sRandom(-5,5)};
 		ctx.moveTo(center.x + pointR1.x,center.y + pointR1.y);
@@ -57,8 +57,8 @@ function generateCat()
 		ctx.stroke();
 		//Рисуем левое ухо
     	ctx.beginPath();
-        ctx.strokeStyle = strokeColor;
-        ctx.fillStyle = fillColor;
+        ctx.strokeStyle = blackColor;
+        ctx.fillStyle = whiteColor;
         ctx.lineWidth = Math.sRandom(2, 4);
         var topPointL = VectorXInvert({x:topPointR.x+Math.sRandom(-5,5), y:topPointR.y+Math.sRandom(-5,5)});
         var pointL1 = VectorXInvert(pointR1);
@@ -99,8 +99,8 @@ function generateCat()
 		//Правая сторона
 		for (var i = 0; i < pointsR.length; i++) {
 			ctx.beginPath();
-	        ctx.strokeStyle = strokeColor;
-	        ctx.fillStyle = fillColor;
+	        ctx.strokeStyle = blackColor;
+	        ctx.fillStyle = whiteColor;
 	        ctx.lineWidth = lineWidth;
 			ctx.moveTo(center.x - pointsR[i].begin.x,center.y + pointsR[i].begin.y);
 			ctx.lineTo(center.x - pointsR[i].end.x,center.y + pointsR[i].end.y);
@@ -110,8 +110,8 @@ function generateCat()
 	    for (var i = 0; i < pointsR.length; i++) {
 			
 			ctx.beginPath();
-	        ctx.strokeStyle = strokeColor;
-	        ctx.fillStyle = fillColor;
+	        ctx.strokeStyle = blackColor;
+	        ctx.fillStyle = whiteColor;
 	        ctx.lineWidth = lineWidth;
 	        var pointLBegin = VectorXInvert(pointsR[i].begin);
 	        var pointLEnd = VectorXInvert(pointsR[i].end);
@@ -137,16 +137,16 @@ function generateCat()
 	//Рисуем
 	add(function(ctx){
 	    ctx.beginPath();
-        ctx.strokeStyle = strokeColor;
-        ctx.fillStyle = fillColor ;
+        ctx.strokeStyle = blackColor;
+        ctx.fillStyle = whiteColor ;
         ctx.lineWidth = Math.sRandom(1,3);
 		ctx.moveTo(P0.x,P0.y );
 		ctx.bezierCurveTo(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y);
 		ctx.stroke();
 
 	    ctx.beginPath();
-        ctx.strokeStyle = strokeColor;
-        ctx.fillStyle = fillColor ;
+        ctx.strokeStyle = blackColor;
+        ctx.fillStyle = whiteColor ;
         ctx.lineWidth = Math.sRandom(1,3);
 		ctx.moveTo(P0.x,P0.y );
 		
@@ -172,8 +172,8 @@ function generateCat()
 		//Рисуем
 		add(function(ctx){
 		    ctx.beginPath();
-	        ctx.strokeStyle = strokeColor;
-	        ctx.fillStyle = (Math.sRandom(0, 100) > 50 ? fillColor : strokeColor);
+	        ctx.strokeStyle = blackColor;
+	        ctx.fillStyle = (Math.sRandom(0, 100) > 50 ? whiteColor : blackColor);
 	        ctx.lineWidth = Math.sRandom(1,3);
 			ctx.moveTo(center.x + pointR.x,center.y + 5 + pointR.y);
 			ctx.lineTo(center.x + bottomPoint.x,center.y + 5 + bottomPoint.y);
@@ -188,7 +188,7 @@ function generateCat()
 	{
 		//Рисуем кот
 		add(function(ctx){
-			drawСircle(ctx, {x:0,y:0}, Math.sRandom(7, 10), strokeColor, strokeColor, 1);
+			drawСircle(ctx, {x:0,y:0}, Math.sRandom(7, 10), blackColor, blackColor, 1);
 		}, {x:1,y:1});
 	}
 	//--Глаза
@@ -210,8 +210,8 @@ function generateCat()
 	add(function(ctx){
 		
 	    ctx.beginPath();
-        ctx.strokeStyle = strokeColor;
-        ctx.fillStyle = fillColor;
+        ctx.strokeStyle = blackColor;
+        ctx.fillStyle = whiteColor;
         ctx.lineWidth = Math.sRandom(3,5);;
         //Если меньше 70 - то рисуем глаз, если нет - глаз закрыт. Дальше аналогично
         if(chanceCloseFirstEye < 70)
@@ -225,8 +225,8 @@ function generateCat()
 		ctx.fill();
 
 	    ctx.beginPath();
-        ctx.strokeStyle = strokeColor;
-        ctx.fillStyle = fillColor;
+        ctx.strokeStyle = blackColor;
+        ctx.fillStyle = whiteColor;
         ctx.lineWidth = Math.sRandom(3,5);
 	    if(chanceCloseSecondEye < 70)
         {
@@ -246,11 +246,11 @@ function generateCat()
 			var shift = Math.sRandom(-5,5);
 			if(chanceCloseSecondEye < 70)
         	{
-				drawСircle(ctx, {x:((P0.x + P3.x)/2)+shift,y:(P1.y + 6)}, 2, strokeColor, strokeColor, Math.sRandom(1, 2));
+				drawСircle(ctx, {x:((P0.x + P3.x)/2)+shift,y:(P1.y + 6)}, 2, blackColor, blackColor, Math.sRandom(1, 2));
 			}
 			if(chanceCloseFirstEye < 70)
 			{
-				drawСircle(ctx, {x:-(((P0.x) + (P3.x))/2) + shift,y:(P1.y + 6)}, 2, strokeColor, strokeColor, Math.sRandom(1, 2));
+				drawСircle(ctx, {x:-(((P0.x) + (P3.x))/2) + shift,y:(P1.y + 6)}, 2, blackColor, blackColor, Math.sRandom(1, 2));
 			}
 			
 		}
@@ -261,11 +261,11 @@ function generateCat()
 			if(chanceCloseFirstEye < 70)
         	{
         		//Рисуем линию достаточно сложно. Выичисляем центральную точку глаза, и рисуем
-				drawLine(ctx, {x:((P0.x + P3.x)/2)+shift, y: (P1.y + 10) }, {x:((P0.x + P3.x)/2)+shift,y:(P1.y)}, strokeColor, strokeColor, widthEye);
+				drawLine(ctx, {x:((P0.x + P3.x)/2)+shift, y: (P1.y + 10) }, {x:((P0.x + P3.x)/2)+shift,y:(P1.y)}, blackColor, blackColor, widthEye);
 			}
 			if(chanceCloseSecondEye < 70)
 			{
-				drawLine(ctx, {x:-((P0.x + P3.x)/2)+shift, y: (P1.y + 10) }, {x:-((P0.x + P3.x)/2)+shift,y:(P1.y)}, strokeColor, strokeColor, widthEye);
+				drawLine(ctx, {x:-((P0.x + P3.x)/2)+shift, y: (P1.y + 10) }, {x:-((P0.x + P3.x)/2)+shift,y:(P1.y)}, blackColor, blackColor, widthEye);
 			}
 		}
 	}, {x:1,y:1});
@@ -277,11 +277,11 @@ function generateCat()
 
 			for (var i = 0; i < Math.sRandom(5, 7); i++) {
 				var P = {x:Math.sRandom(20, 40),y:Math.sRandom(0, 30)};
-				drawСircle(ctx, P, 1, strokeColor, strokeColor, 1);
+				drawСircle(ctx, P, 1, blackColor, blackColor, 1);
 			}
 		    for (var i = 0; i < Math.sRandom(5, 7); i++) {
 				var P = {x:-Math.sRandom(20, 40),y:Math.sRandom(0, 30)};
-				drawСircle(ctx, P, 1, strokeColor, strokeColor, 1);
+				drawСircle(ctx, P, 1, blackColor, blackColor, 1);
 			}
 
 		}, {x:1,y:1});
@@ -304,7 +304,7 @@ function generateCat()
 				//Ширина волоса
 				var lineWidth = Math.sRandom(0.5, 1.5);
 				//Рисуем
-				drawLine(ctx, P0, P1, strokeColor, strokeColor, lineWidth);
+				drawLine(ctx, P0, P1, blackColor, blackColor, lineWidth);
 			}
 
 		}, {x:1,y:1});
@@ -326,9 +326,9 @@ function generateCat()
 			var P1 = {x:Math.sRandom(20, 45), y:radius+ Math.sRandom(13, 22)};
 			add(function(ctx){
 					
-				var color = (Math.sRandom(0, 100) > 50 ? fillColor : strokeColor);
+				var color = (Math.sRandom(0, 100) > 50 ? whiteColor : blackColor);
 			    ctx.beginPath();
-		    	ctx.strokeStyle = strokeColor;
+		    	ctx.strokeStyle = blackColor;
 		    	ctx.fillStyle = color;
 		    	ctx.lineWidth = Math.sRandom(2, 5);
 				ctx.moveTo(center.x + P.x,center.y + P.y);
@@ -339,7 +339,7 @@ function generateCat()
 				ctx.fill();
 
 				ctx.beginPath();
-		    	ctx.strokeStyle = strokeColor;
+		    	ctx.strokeStyle = blackColor;
 		    	ctx.fillStyle = color;
 		    	ctx.lineWidth = Math.sRandom(2, 5);
 				ctx.moveTo(center.x - P.x,center.y + P.y);
@@ -349,7 +349,7 @@ function generateCat()
 				ctx.stroke();
 				ctx.fill();
 
-				drawСircle(ctx, P, Math.sRandom(6, 12), (Math.sRandom(0, 100) > 50 ? fillColor : strokeColor), strokeColor, Math.sRandom(1, 3));
+				drawСircle(ctx, P, Math.sRandom(6, 12), (Math.sRandom(0, 100) > 50 ? whiteColor : blackColor), blackColor, Math.sRandom(1, 3));
 
 			}, {x:1,y:1});
 		}
@@ -367,11 +367,11 @@ function generateCat()
 			var P3 = {x:0,y:P0.y + Math.sRandom(0, 7)};
 			add(function(ctx){
 
-				drawСircle(ctx, P3, Math.sRandom(2, 6), (Math.sRandom(0, 100) > 50 ? fillColor : strokeColor), strokeColor, Math.sRandom(1, 3));
+				drawСircle(ctx, P3, Math.sRandom(2, 6), (Math.sRandom(0, 100) > 50 ? whiteColor : blackColor), blackColor, Math.sRandom(1, 3));
 
-				var color = (Math.sRandom(0, 100) > 50 ? fillColor : strokeColor);
+				var color = (Math.sRandom(0, 100) > 50 ? whiteColor : blackColor);
 			    ctx.beginPath();
-		    	ctx.strokeStyle = strokeColor;
+		    	ctx.strokeStyle = blackColor;
 		    	ctx.fillStyle = color;
 		    	ctx.lineWidth = Math.sRandom(2, 5);
 				ctx.moveTo(center.x + P.x,center.y + P.y);
@@ -407,18 +407,18 @@ function VectorXInvert(vec){
 	return {x:-vec.x,y:vec.y};	
 }
 //Рисуем круг
-function drawСircle(ctx, pos, radius, fillColor, strokeColor, lineWidth)
+function drawСircle(ctx, pos, radius, whiteColor, blackColor, lineWidth)
 {
     ctx.beginPath();
     ctx.arc(center.x - pos.x, center.y + pos.y, radius, 0, 2*Math.PI, false);
-    ctx.fillStyle = fillColor;
+    ctx.fillStyle = whiteColor;
     ctx.fill();
     ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = strokeColor;
+    ctx.strokeStyle = blackColor;
     ctx.stroke();
 }
 //Рисуем одиночкую линию
-function drawLine(ctx, vec1, vec2, fillColor, strokeColor, width)
+function drawLine(ctx, vec1, vec2, whiteColor, blackColor, width)
 {
     ctx.beginPath();
     ctx.strokeStyle = "#000";
