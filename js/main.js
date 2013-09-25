@@ -407,22 +407,22 @@ function VectorXInvert(vec){
 	return {x:-vec.x,y:vec.y};	
 }
 //Рисуем круг
-function drawСircle(ctx, pos, radius, whiteColor, blackColor, lineWidth)
+function drawСircle(ctx, pos, radius, fillColor, strokeColor, lineWidth)
 {
     ctx.beginPath();
     ctx.arc(center.x - pos.x, center.y + pos.y, radius, 0, 2*Math.PI, false);
-    ctx.fillStyle = whiteColor;
+    ctx.fillStyle = fillColor;
     ctx.fill();
     ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = blackColor;
+    ctx.strokeStyle = strokeColor;
     ctx.stroke();
 }
 //Рисуем одиночкую линию
-function drawLine(ctx, vec1, vec2, whiteColor, blackColor, width)
+function drawLine(ctx, vec1, vec2, fillColor, strokeColor, width)
 {
     ctx.beginPath();
-    ctx.strokeStyle = "#000";
-    ctx.fillStyle = "#000" ;
+    ctx.strokeStyle = strokeColor;
+    ctx.fillStyle = fillColor ;
     ctx.lineWidth = width;
 	ctx.moveTo(center.x + vec1.x,center.y + vec1.y);
 	ctx.lineTo(center.x + vec2.x,center.y + vec2.y);
